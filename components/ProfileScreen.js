@@ -2,11 +2,24 @@ import React from "react";
 import { View, Text, Image, Button, SafeAreaView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-
 const styles = {
+  uploadProfilePhoto: {
+    width: 30,
+    height: 30,
+    background: "white",
+    borderRadius: "50%",
+    position: "absolute",
+    display: "grid",
+    placeItems: "center",
+    right: "45%",
+    left: "55%",
+  },
+
   uploadPhotoIcon: {
     color: "black",
+    fontSize: 18,
   },
+
   profilePhoto: {
     width: 120,
     height: 120,
@@ -41,9 +54,10 @@ const styles = {
     elevation: 1,
     width: "80%",
     zIndex: "100",
+    position: "relative",
   },
-  bubble: {
-    backgroundColor: "rgb(255, 50, 60)",
+  redBubble: {
+    background: "rgba(255,50,60,1)",
     width: "100%",
     height: "70%",
     borderBottomRightRadius: 80,
@@ -67,7 +81,7 @@ const ProfileScreen = () => {
             }}
           />
           <View style={styles.uploadProfilePhoto}>
-            <Icon name="rocket" size={30} color="#900" style={styles.uploadPhotoIcon} />
+            <Icon name="camera" style={styles.uploadPhotoIcon} />
           </View>
           <Text style={styles.userName}>@Grace Leah</Text>
           <Text style={styles.introduction}>
@@ -75,7 +89,7 @@ const ProfileScreen = () => {
             on the beach.
           </Text>
         </View>
-        <View style={styles.bubble}></View>
+        <View style={styles.redBubble}></View>
       </View>
     </>
   );
