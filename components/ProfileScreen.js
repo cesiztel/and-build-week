@@ -3,8 +3,8 @@ import { View, Text, Image, Button, SafeAreaView } from "react-native";
 
 const styles = {
   coverPhoto: {
-    width: 150,
-    height: 150,
+    width: 120,
+    height: 120,
     resizeMode: "cover",
     borderRadius: "50%",
   },
@@ -24,12 +24,28 @@ const styles = {
     padding: 10,
   },
   introContainer: {
-    boxShadow: "10px 5px 20px rgba(255, 50, 60, 0.6)",
-    borderRadius: 10,
+    boxShadow: "10px 10px 30px rgba(255, 50, 60, 0.6)",
+    background: "white",
+    borderRadius: 20,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20
+    padding: 20,
+    marginTop: 80,
+    elevation: 1,
+    width: "80%",
+    zIndex: "100",
+  },
+  bubble: {
+    backgroundColor: "rgb(255, 50, 60)",
+    width: "100%",
+    height: "70%",
+    borderBottomRightRadius: 80,
+    borderBottomLeftRadius: 80,
+    position: "absolute",
+    elevation: -10,
+    zIndex: -10,
+    top: 0,
   },
 };
 
@@ -44,12 +60,13 @@ const ProfileScreen = () => {
               uri: "https://images.unsplash.com/photo-1612061279301-c1bd3a484fcf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
             }}
           />
-          <Text style={styles.introduction}>@Grace Lea</Text>
+          <Text style={styles.userName}>@Grace Leah</Text>
           <Text style={styles.introduction}>
-            People Lead and Cat Enthusiast. <br />I love cocktails and long
-            walks on the beach.
+            People's Lead and Cat Fanatic. <br />I love cocktails and long walks
+            on the beach.
           </Text>
         </View>
+        <View style={styles.bubble}></View>
       </View>
     </>
   );
