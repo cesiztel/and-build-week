@@ -4,14 +4,15 @@ import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from './components/HomeScreen.js';
-// import {ProfileScreen} from './components/ProfileScreen.js';
+import HomeScreen from './components/HomeScreen';
+import ExperienceScreen from './components/ExperienceScreen';
+import HomeScreen from './components/HomeScreen';
+import ProfileScreen from './components/ProfileScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
- 
-
   return (
-    <>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -23,10 +24,8 @@ export default function App() {
       </Stack.Navigator>
       
     </NavigationContainer>
-    </>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
