@@ -1,44 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
-// import Profile from "./ProfileScreen";
+import { StyleSheet, Text, Image, SafeAreaView } from 'react-native';
+import ProfileScreen from './ProfileScreen';
+import ExperienceScreen from './ExperienceScreen';
+import MatchScreen from './MatchScreen';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HomeScreen = ({ navigation }) => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text>Whats up ANDis!</Text>
-      <Image
-        source={{
-          width: 300,
-          height: 100,
+const Tab = createBottomTabNavigator();
 
-          uri: "https://commercetools.com/wp-content/uploads/2021/03/and-digital-logo.png",
-        }}
-        resizeMode="contain"
-      />
-      <Button
-        title="Setup profile"
-        onPress={() =>
-        navigation.navigate("Profile")
-      }
-    />
-    <Button
-        title="Experiences"
-        onPress={() =>
-        navigation.navigate("Experience")
-      }
-    />
-    <Button
-        title="Match"
-        onPress={() =>
-        navigation.navigate("Match")
-      }
-    />
-
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
-};
+const HomeScreen = () => {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={{
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="account" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Experience"
+                component={ExperienceScreen}
+                options={{
+                    tabBarLabel: 'Experiences',
+                    tabBarIcon: ({ color, size }) => (
+                        <MaterialCommunityIcons name="apple-safari" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen name="Match" component={MatchScreen} />
+        </Tab.Navigator>
+    );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +45,17 @@ const styles = StyleSheet.create({
   },
   home: {
     flex: 1,
+  },
+  title: {
+    paddingTop: '20px',
+    fontWeight: 'bold',
+    fontSize: '32px'
+  },
+  subtitle: {
+    paddingTop: '16px',
+    maxWidth: '300px',
+    textAlign: 'center',
+    ontSize: '18px'
   }
 });
 
