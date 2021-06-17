@@ -15,6 +15,7 @@ export default function App() {
         uri: "https://commercetools.com/wp-content/uploads/2021/03/and-digital-logo.png"}} resizeMode="contain"/>
         <Button  title="Click Me" color="red" onPress={() => alert("Button Clicked")}/>
 
+
       <StatusBar style="auto" />
     </SafeAreaView>
   );
