@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
 import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
+// import Profile from "./ProfileScreen";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Whats up ANDis!</Text>
@@ -16,10 +17,23 @@ const HomeScreen = () => {
         resizeMode="contain"
       />
       <Button
-        title="Click Me"
-        color="red"
-        onPress={() => alert("Button Clicked")}
-      />
+        title="Setup profile"
+        onPress={() =>
+        navigation.navigate("Profile")
+      }
+    />
+    <Button
+        title="Experiences"
+        onPress={() =>
+        navigation.navigate("Experience")
+      }
+    />
+    <Button
+        title="Match"
+        onPress={() =>
+        navigation.navigate("Match")
+      }
+    />
 
       <StatusBar style="auto" />
     </SafeAreaView>

@@ -5,8 +5,8 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ExperienceScreen from './components/ExperienceScreen';
-import HomeScreen from './components/HomeScreen';
 import ProfileScreen from './components/ProfileScreen';
+import MatchScreen from './components/MatchScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,9 @@ export default function App() {
           component={HomeScreen}
           options={{ title: 'Welcome' }}
         />
-        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Experience" component={ExperienceScreen} />
+        <Stack.Screen name="Match" component={MatchScreen} />
       </Stack.Navigator>
       
     </NavigationContainer>
