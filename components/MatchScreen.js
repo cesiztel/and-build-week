@@ -2,6 +2,7 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Linking from 'expo-linking';
+import * as SplashScreen from 'expo-splash-screen';
 import {
   StyleSheet,
   Text,
@@ -10,6 +11,7 @@ import {
   Button,
   SafeAreaView,
   ImageBackground,
+  
 } from "react-native";
 import AppLoading from "expo-app-loading";
 import {
@@ -69,9 +71,11 @@ const MatchScreen = () => {
             colors={["rgba(255,50,60,1)", "rgba(160,80,255,1)"]}
             style={styles.background}
           >
+              <View>
             <View style={styles.images}>
               <View style={{ padding: 10 }}>
                 <Image
+                    fadeDuration={1000}
                   style={styles.avatar}
                   source={{
                     width: 100,
@@ -83,6 +87,7 @@ const MatchScreen = () => {
               </View>
               <View style={{ padding: 10 }}>
                 <Image
+                    fadeDuration={2000}
                   style={styles.avatar}
                   source={{
                     width: 100,
@@ -94,19 +99,24 @@ const MatchScreen = () => {
               </View>
             </View>
             <Text style={styles.text, styles.header}>It's A Match!</Text>
+            </View>
           </LinearGradient>
         </View>
         <View style={styles.details}>
         {/* <ImageBackground source={image} style={styles.imageBackground}> */}
-          <Text>You will be meeting with</Text>
+        <Text>🚀</Text>
+          <Text style={{color: "white"}}>You are meeting</Text>
           <Text style={{ fontSize: 30 }, styles.text}>Andrea</Text>
           <View style={styles.line} />
-          <Text>The activity you will be doing together is:</Text>
+          <Text>👯‍♀️</Text>
+          <Text style={{color: "white"}}>Your ANDexperience is</Text>
           <Text style={{ fontSize: 30 }, styles.text}>Walk in the Vondelpark</Text>
           <View style={styles.line} />
-          <Text>Time:</Text>
+          <Text>⏰</Text>
+          <Text style={{color: "white"}}>Time</Text>
           <Text style={{ fontSize: 30 }, styles.text}>13:00 on Thursday 24th June</Text>
-        <Button title="Confirm Meetup" color="#FF323C" style={styles.button} />
+        <View style={{marginTop: 40}}>
+        <Button title="Confirm Meetup" color="grey" style={styles.button} />
         <Text
             style={styles.hyperlinkStyle}
             onPress={() => {
@@ -114,6 +124,7 @@ const MatchScreen = () => {
             }}>
             Choose another experience
         </Text>
+        </View>
         {/* </ImageBackground> */}
         </View>
       </SafeAreaView>
@@ -125,6 +136,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "Poppins_700Bold",
     textAlign: "center",
+    color: "white",
   },
   header: {
     fontSize: 50,
@@ -141,13 +153,15 @@ const styles = StyleSheet.create({
   matchContainer: {
     fontFamily: "Poppins_700Bold",
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   avatar: {
     width: 100,
     height: 100,
     borderRadius: "50%",
     padding: 10,
-    boxShadow: "0 0 15px rgba(0,0,0,1)",
+    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
   },
   line: {
     width: 10,
@@ -156,7 +170,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    
+    fontColor: "#FF323C",
     borderRadius: "50%",
     width: "20%",
     cursor: "pointer",
@@ -177,18 +191,24 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    //   display: 'flex',
+      display: 'flex',
     //   flexDirection: 'row',
-    //   justifyContent: 'center',
-    //   alignItems: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
   },
   details: {
     flex: 2,
     textAlign: "center",
     fontFamily: "Poppins_300Light",
-   
+    justifyContent: "center",
+    alignItems: "center",
     // width: '100%',
-    backgroundColor: "white",
+    backgroundColor: "#FF323C",
+    width: '80%',
+    margin: 'auto',
+    marginTop: '10%',
+    borderRadius: 10,
+    boxShadow: '0 0 15px rgba(0,0,0,0.3)',
     alignItems: 'center',
     
     // justifyContent: 'center',
@@ -196,7 +216,8 @@ const styles = StyleSheet.create({
   hyperlinkStyle: {
       textAlign: 'center',
       color: '#FF323C',
-      textDecorationLine: 'underline'
+      textDecorationLine: 'underline',
+      marginTop: 20,
 
   }
 });
