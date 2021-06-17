@@ -97,7 +97,7 @@ const MatchScreen = () => {
           </LinearGradient>
         </View>
         <View style={styles.details}>
-        <ImageBackground source={image} style={styles.imageBackground}>
+        {/* <ImageBackground source={image} style={styles.imageBackground}> */}
           <Text>You will be meeting with</Text>
           <Text style={{ fontSize: 30 }, styles.text}>Andrea</Text>
           <View style={styles.line} />
@@ -114,7 +114,7 @@ const MatchScreen = () => {
             }}>
             Choose another experience
         </Text>
-        </ImageBackground>
+        {/* </ImageBackground> */}
         </View>
       </SafeAreaView>
     );
