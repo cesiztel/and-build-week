@@ -3,14 +3,15 @@ import React from 'react';
 import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-
-import {HomeScreen} from './components/HomeScreen.js';
+import { createStackNavigator } from '@react-navigation/stack';
+import { HomeScreen } from './components/HomeScreen.js';
 // import {ProfileScreen} from './components/ProfileScreen.js';
 
 export default function App() {
  
 
   return (
+    <>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -22,7 +23,7 @@ export default function App() {
       </Stack.Navigator>
       
     </NavigationContainer>
-    
+    </>
   );
 }
 
@@ -34,4 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  home: {
+    flex: 1,
+  }
 });
