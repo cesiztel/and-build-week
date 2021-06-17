@@ -9,9 +9,12 @@ import ExperienceScreen from './components/ExperienceScreen';
 import ProfileScreen from './components/ProfileScreen';
 import MatchScreen from './components/MatchScreen';
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
+  
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
