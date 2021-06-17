@@ -4,6 +4,7 @@ import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './components/HomeScreen';
 import ExperienceScreen from './components/ExperienceScreen';
 import ProfileScreen from './components/ProfileScreen';
 import MatchScreen from './components/MatchScreen';
