@@ -1,11 +1,36 @@
 import React from "react";
-import { View, Text, Image, Button, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  SafeAreaView,
+  TextInput,
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-
 const styles = {
-  uploadPhotoIcon: {
+  uploadProfilePhoto: {
+    width: 30,
+    height: 30,
+    background: "white",
+    borderRadius: "50%",
+    position: "absolute",
+    display: "grid",
+    placeItems: "center",
+    right: "45%",
+    left: "55%",
+  },
+  cameraIcon: {
     color: "black",
+    fontSize: 18,
+  },
+  pencilIcon: {
+    color: "black",
+    fontSize: 18,
+    position: "absolute",
+    right: "16px",
+    top: "62%",
   },
   profilePhoto: {
     width: 120,
@@ -41,9 +66,10 @@ const styles = {
     elevation: 1,
     width: "80%",
     zIndex: "100",
+    position: "relative",
   },
-  bubble: {
-    backgroundColor: "rgb(255, 50, 60)",
+  redBubble: {
+    background: "rgba(255,50,60,1)",
     width: "100%",
     height: "70%",
     borderBottomRightRadius: 80,
@@ -53,12 +79,24 @@ const styles = {
     zIndex: -10,
     top: 0,
   },
+  pageTitle: {
+    position: "absolute",
+    top: 30,
+    color: "white",
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
 };
 
 const ProfileScreen = () => {
   return (
     <>
       <View style={styles.mainContainer}>
+        <Text style={styles.pageTitle}>My profile</Text>
         <View style={styles.introContainer}>
           <Image
             style={styles.profilePhoto}
@@ -67,15 +105,22 @@ const ProfileScreen = () => {
             }}
           />
           <View style={styles.uploadProfilePhoto}>
-            <Icon name="rocket" size={30} color="#900" style={styles.uploadPhotoIcon} />
+            <Icon name="camera" style={styles.cameraIcon} />
           </View>
           <Text style={styles.userName}>@Grace Leah</Text>
           <Text style={styles.introduction}>
             People's Lead and Cat Fanatic. <br />I love cocktails and long walks
-            on the beach.
+            on the beach. <br />
+            <Icon name="pencil" style={styles.pencilIcon} />
           </Text>
         </View>
-        <View style={styles.bubble}></View>
+        <View style={styles.redBubble}></View>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+          />
+        </View>
       </View>
     </>
   );
