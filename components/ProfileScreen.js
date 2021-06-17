@@ -1,12 +1,129 @@
 import React from "react";
-import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  SafeAreaView,
+  TextInput,
+} from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
+const styles = {
+  uploadProfilePhoto: {
+    width: 30,
+    height: 30,
+    background: "white",
+    borderRadius: "50%",
+    position: "absolute",
+    display: "grid",
+    placeItems: "center",
+    right: "45%",
+    left: "55%",
+  },
+  cameraIcon: {
+    color: "black",
+    fontSize: 18,
+  },
+  pencilIcon: {
+    color: "black",
+    fontSize: 18,
+    position: "absolute",
+    right: "16px",
+    top: "62%",
+  },
+  profilePhoto: {
+    width: 120,
+    height: 120,
+    resizeMode: "cover",
+    borderRadius: "50%",
+    boxShadow: "rgb(255 50 60 / 60%) 9px 8px 25px",
+  },
+  mainContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    paddingTop: 50,
+  },
+  userName: {
+    paddingTop: 20,
+    fontWeight: "bold",
+  },
+  introduction: {
+    textAlign: "center",
+    padding: 10,
+  },
+  introContainer: {
+    boxShadow: "10px 10px 30px rgba(255, 50, 60, 0.6)",
+    background: "white",
+    borderRadius: 20,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    marginTop: 80,
+    elevation: 1,
+    width: "80%",
+    zIndex: "100",
+    position: "relative",
+  },
+  redBubble: {
+    background: "rgba(255,50,60,1)",
+    width: "100%",
+    height: "70%",
+    borderBottomRightRadius: 80,
+    borderBottomLeftRadius: 80,
+    position: "absolute",
+    elevation: -10,
+    zIndex: -10,
+    top: 0,
+  },
+  pageTitle: {
+    position: "absolute",
+    top: 30,
+    color: "white",
+  },
 
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+};
 
 const ProfileScreen = () => {
-    return (
-        <Text>Hello</Text>
-    )
-}
+  return (
+    <>
+      <View style={styles.mainContainer}>
+        <Text style={styles.pageTitle}>My profile</Text>
+        <View style={styles.introContainer}>
+          <Image
+            style={styles.profilePhoto}
+            source={{
+              uri: "https://images.unsplash.com/photo-1612061279301-c1bd3a484fcf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+            }}
+          />
+          <View style={styles.uploadProfilePhoto}>
+            <Icon name="camera" style={styles.cameraIcon} />
+          </View>
+          <Text style={styles.userName}>@Grace Leah</Text>
+          <Text style={styles.introduction}>
+            People's Lead and Cat Fanatic. <br />I love cocktails and long walks
+            on the beach. <br />
+            <Icon name="pencil" style={styles.pencilIcon} />
+          </Text>
+        </View>
+        <View style={styles.redBubble}></View>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+          />
+        </View>
+      </View>
+    </>
+  );
+};
 
 export default ProfileScreen;
