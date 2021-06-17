@@ -1,6 +1,8 @@
+import { StatusBar } from 'expo-status-bar';
 import React from "react";
+import { StyleSheet, Text, Image, Button, SafeAreaView } from 'react-native';
 
-export default HomeScreen = () => {
+const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Whats up ANDis!</Text>
@@ -23,3 +25,17 @@ export default HomeScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  home: {
+    flex: 1,
+  }
+});
+
+export default HomeScreen;
