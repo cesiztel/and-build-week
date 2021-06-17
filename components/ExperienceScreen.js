@@ -72,8 +72,9 @@ const styles = {
         marginBottom: 10
     },
     experienceCard: {
+        marginRight: 10,
+        marginLeft: 10,
         marginBottom: 10,
-        width: "100%",
         boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
         borderRadius: "10px",
     },
