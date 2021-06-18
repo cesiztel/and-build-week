@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import { View, Text, Image, SafeAreaView, ScrollView, FlatList } from "react-native";
 
 const Activity = (props) => {
   return (
@@ -16,6 +9,15 @@ const Activity = (props) => {
     </View>
   );
 };
+
+const ProfileItem = (props) => {
+    return (
+      <View style={styles.profileCardInformation}>
+        <Text style={styles.andiProfileUserName}>{props.name}</Text>
+        <Text style={styles.introduction}>{props.title}</Text>
+      </View>
+    );
+}
 
 const ANDIS = [
   {
@@ -43,12 +45,29 @@ const Item = ({ id, name, title }) => (
         uri: `https://randomuser.me/api/portraits/women/${id}.jpg`,
       }}
     />
-    <View style={styles.profileCardInformation}>
-      <Text style={styles.andiProfileUserName}>{name}</Text>
-      <Text style={styles.introduction}>{title}</Text>
-    </View>
+    <ProfileItem name={name} title={title}/>
   </View>
 );
+
+const ProfileCard = () => {
+  return (
+    <View style={styles.profileCard}>
+      <Image
+        style={styles.profilePhoto}
+        source={{
+          uri: "https://randomuser.me/api/portraits/women/46.jpg",
+        }}
+      />
+      <View style={styles.profileCardInformation}>
+        <Text style={styles.userName}>Grace Leah</Text>
+        <Text style={styles.introduction}>
+          People's Lead
+        </Text>
+        <Text style={styles.introduction}>Club: Amsterdam</Text>
+      </View>
+    </View>
+  );
+};  
 
 const ProfileScreen = () => {
   const renderItem = ({ item }) => (
@@ -60,21 +79,7 @@ const ProfileScreen = () => {
       <View>
         <ScrollView>
           <View style={styles.introContainer}>
-            <View style={styles.profileCard}>
-              <Image
-                style={styles.profilePhoto}
-                source={{
-                  uri: "https://randomuser.me/api/portraits/women/46.jpg",
-                }}
-              />
-              <View style={styles.profileCardInformation}>
-                <Text style={styles.userName}>Grace Leah</Text>
-                <Text style={styles.introduction}>
-                  People's Lead and Cat Fanatic.
-                </Text>
-                <Text style={styles.introduction}>Club: Amsterdam</Text>
-              </View>
-            </View>
+            <ProfileCard/>
           </View>
           <View style={styles.activitiesContainer}>
             <Text style={styles.sectionTitle}>PREFERRED ACTIVITIES</Text>
@@ -103,7 +108,6 @@ const styles = {
     backgroundColor: "#FFF",
     height: "100%",
   },
-
   introContainer: {
     backgroundColor: "#ff323c",
     width: "100%",
@@ -116,7 +120,7 @@ const styles = {
     flexDirection: "row",
   },
   profileCard: {
-    background: "white",
+    backgroundColor: "#FFF",
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -129,7 +133,10 @@ const styles = {
     elevation: 4,
     borderRadius: 8,
     padding: 20,
-    margin: 20,
+    marginTop: 50,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
     display: "flex",
     flexDirection: "row",
   },
@@ -149,28 +156,6 @@ const styles = {
   andiProfileUserName: {
     fontSize: 16,
     color: "#1e212d",
-  },
-  uploadProfilePhoto: {
-    width: 30,
-    height: 30,
-    background: "white",
-    borderRadius: 50,
-    position: "absolute",
-    display: "grid",
-    placeItems: "center",
-    right: "45%",
-    left: "55%",
-  },
-  cameraIcon: {
-    color: "black",
-    fontSize: 18,
-  },
-  pencilIcon: {
-    color: "black",
-    fontSize: 18,
-    position: "absolute",
-    right: "16px",
-    top: "62%",
   },
   userName: {
     fontSize: 20,

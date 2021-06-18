@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  Button,
-  SafeAreaView,
-  FlatList,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, SafeAreaView, FlatList, ScrollView } from "react-native";
 
 const EXPERIENCES = [
   {
@@ -109,7 +101,7 @@ const ExperienceScreen = () => {
     <SafeAreaView style={styles.experienceContainer}>
       <View>
         <ScrollView>
-          <View style={styles.main}>
+          <View>
             <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
             <FlatList
               data={EXPERIENCES}
@@ -133,7 +125,7 @@ const styles = {
   experienceContainer: {
     height: "100%",
     backgroundColor: "#FFF",
-    padding: 20,
+    paddingTop: 50
   },
   sectionTitle: {
     fontWeight: "700",
@@ -145,15 +137,7 @@ const styles = {
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 20,
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 5.46,
-
-    elevation: 9,
+    backgroundColor: "#f2f3f3",
     borderRadius: 10,
   },
   experienceCardInformation: {
@@ -182,10 +166,7 @@ const styles = {
     backgroundColor: "#dae7ff",
     fontSize: 22,
     borderRadius: 15,
-  },
-  main: {
-    padding: 10,
-  },
+  }
 };
 
 export default ExperienceScreen;

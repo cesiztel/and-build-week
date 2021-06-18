@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Button, Text, Image, Pressable } from 'react-native';
+import { StyleSheet, View, Text, Image, Pressable } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './components/HomeScreen';
 
 const Stack = createStackNavigator();
-
 
 function AppScreen({ navigation }) {
     return (
@@ -32,22 +31,13 @@ export default function App() {
         <NavigationContainer theme={MyTheme} >
             <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
                 <Stack.Screen name="Welcome" component={AppScreen} />
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  home: {
-    flex: 1,
-  },
     title: {
         fontSize: 48,
         color: "#FFF",
