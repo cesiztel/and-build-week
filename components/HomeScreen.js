@@ -56,14 +56,13 @@ const styles = StyleSheet.create({
   },
   title: {
     paddingTop: "20px",
-    fontWeight: "bold",
-    fontSize: "32px",
+    fontSize: 32,
   },
   subtitle: {
     paddingTop: "10px",
     maxWidth: "300px",
     textAlign: "center",
-    fontSize: "18px",
+    fontSize: 18,
   },
 });
 
