@@ -1,5 +1,13 @@
 import React from "react";
-import {View, Text, Image, Button, SafeAreaView, ScrollView, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 const EXPERIENCES = [
   {
@@ -68,47 +76,50 @@ const EXPERIENCES = [
   },
 ];
 
-const Activity = ({ icon, name}) => {
-    return(
-        <View style={styles.activityCard}>
-            <Text style={styles.activityIcon}>{icon}</Text>
-            <Text style={styles.activityTitle}>{name}</Text>
-        </View>
-    );
+const Activity = ({ icon, name }) => {
+  return (
+    <View style={styles.activityCard}>
+      <Text style={styles.activityIcon}>{icon}</Text>
+      <Text style={styles.activityTitle}>{name}</Text>
+    </View>
+  );
 };
 
 const Experience = ({ image, name, activity, icon }) => (
-    <View style={styles.experienceCard}>
-        <Image
-            source={image}
-            style={styles.image} />
-        <Text style={styles.experienceName}>{name}</Text>
-        <Activity name={activity} icon={icon}/>
-    </View>
+  <View style={styles.experienceCard}>
+    <Image source={image} style={styles.image} />
+    <Text style={styles.experienceName}>{name}</Text>
+    <Activity name={activity} icon={icon} />
+  </View>
 );
 
 const ExperienceScreen = () => {
-    const renderItem = ({ item }) => {
-        return(
-            <Experience image={item.image} name={item.name} activity={item.activity} icon={item.icon}/>
-        )
-    };
-
+  const renderItem = ({ item }) => {
     return (
-      <SafeAreaView style={styles.experienceContainer}>
-        <ScrollView>
-          <View style={styles.main}>
-            <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
-            <FlatList
-              data={EXPERIENCES}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.id}
-            />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <Experience
+        image={item.image}
+        name={item.name}
+        activity={item.activity}
+        icon={item.icon}
+      />
     );
-}
+  };
+
+  return (
+    <SafeAreaView style={styles.experienceContainer}>
+      <ScrollView>
+        <View style={styles.main}>
+          <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
+          <FlatList
+            data={EXPERIENCES}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = {
   image: {
@@ -132,7 +143,15 @@ const styles = {
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 20,
-    boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
+    shadowColor: "grey",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 5.46,
+
+    elevation: 9,
     borderRadius: "10px",
   },
   experienceCardInformation: {
@@ -143,7 +162,7 @@ const styles = {
     fontWeight: 700,
     fontSize: 22,
     padding: 20,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   activityCard: {
     padding: 15,

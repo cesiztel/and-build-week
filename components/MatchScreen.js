@@ -102,11 +102,9 @@ const MatchScreen = () => {
                 </View>
               </View>
             </View>
-            {/* Bottom Container */}
             <View style={styles.detailsContainer}>
               <View style={styles.details}>
                 <LinearGradient
-                  // Background Linear Gradient
                   colors={["rgba(255,50,60,1)", "rgba(160,80,255,1)"]}
                   style={styles.background}
                 >
@@ -205,9 +203,16 @@ const styles = StyleSheet.create({
   avatar: {
     width: 100,
     height: 100,
-    borderRadius: "50%",
+    borderRadius: 50,
     padding: 10,
-    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+    elevation: 9,
   },
   line: {
     width: 10,
@@ -216,7 +221,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    borderRadius: "50%",
     width: "20%",
     cursor: "pointer",
   },
@@ -258,7 +262,15 @@ const styles = StyleSheet.create({
     marginBottom: "5%",
     margin: "auto",
     borderRadius: 10,
-    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+
+    elevation: 9,
   },
   hyperlinkStyle: {
     textAlign: "center",
@@ -267,8 +279,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   prefContainer: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
   },
   preferenceBox: {
     display: "flex",
