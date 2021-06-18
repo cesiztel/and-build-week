@@ -31,7 +31,7 @@ const styles = {
   profileCard: {
     background: "white",
     alignItems: "center",
-    boxShadow: "0 0 5px 0 gray",
+    //boxShadow: "0 0 5px 0 gray",
     borderRadius: 8,
     padding: 20,
     margin: 20,
@@ -59,7 +59,7 @@ const styles = {
     width: 30,
     height: 30,
     background: "white",
-    borderRadius: "50%",
+    borderRadius: 50,
     position: "absolute",
     display: "grid",
     placeItems: "center",
@@ -95,7 +95,7 @@ const styles = {
     marginTop: 20
   },
   sectionTitle: {
-    fontWeight: 700,
+    fontWeight: "700",
     fontSize: 16,
     marginBottom: 10
   },

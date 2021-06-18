@@ -199,9 +199,9 @@ const styles = StyleSheet.create({
   avatar: {
     width: 100,
     height: 100,
-    borderRadius: "50%",
+    borderRadius: 50,
     padding: 10,
-    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+    //boxShadow: "0 0 15px rgba(0,0,0,0.3)",
   },
   line: {
     width: 10,
@@ -210,9 +210,9 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    borderRadius: "50%",
+    borderRadius: 50,
     width: "20%",
-    cursor: "pointer",
+    //cursor: "pointer",
   },
   imageBackground: {
     flex: 1,
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     marginBottom: "5%",
     margin: "auto",
     borderRadius: 10,
-    boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+    //boxShadow: "0 0 15px rgba(0,0,0,0.3)",
   },
   hyperlinkStyle: {
     textAlign: "center",

@@ -123,7 +123,7 @@ const styles = {
         padding: 16
     },
     sectionTitle: {
-        fontWeight: 700,
+        fontWeight: "700",
         fontSize: 16,
         marginBottom: 10
     },
@@ -131,7 +131,7 @@ const styles = {
         marginRight: 10,
         marginLeft: 10,
         marginBottom: 10,
-        boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
+        //boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
         borderRadius: "10px",
     },
     experienceCardInformation: {
@@ -139,7 +139,7 @@ const styles = {
         color: "#1e212d"
     },
     experienceName: {
-        fontWeight: 700,
+        fontWeight: "700",
         fontSize: 22,
         padding: 20
     },
