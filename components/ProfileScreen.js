@@ -137,12 +137,12 @@ const styles = {
   profilePhoto: {
     width: 120,
     height: 120,
-    borderRadius: "10px",
+    borderRadius: 10,
   },
   andiProfilePhoto: {
     width: 60,
     height: 60,
-    borderRadius: "10px",
+    borderRadius: 10,
   },
   andiProfileUserName: {
     fontSize: 16,
@@ -152,7 +152,7 @@ const styles = {
     width: 30,
     height: 30,
     background: "white",
-    borderRadius: "50%",
+    borderRadius: 50,
     position: "absolute",
     display: "grid",
     placeItems: "center",
@@ -188,7 +188,6 @@ const styles = {
     marginTop: 20,
   },
   sectionTitle: {
-    fontWeight: 700,
     fontSize: 16,
     marginBottom: 10,
   },

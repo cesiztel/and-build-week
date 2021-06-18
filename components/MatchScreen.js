@@ -221,8 +221,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   button: {
-    width: "20%",
-    cursor: "pointer",
+    width: "20%"
   },
   imageBackground: {
     flex: 1,
