@@ -13,7 +13,7 @@ function AppScreen({ navigation }) {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Image
                 style={{ width: 300, height: 100}}
-                source={"https://app.jobvite.com/logo/3522_ANDLOGORGBONWHITE_1493728768591_Company.png"}
+                source={{uri: "https://app.jobvite.com/logo/3522_ANDLOGORGBONWHITE_1493728768591_Company.png"}}
             />
             <Text style={styles.title}>Hello 👋 ANDis</Text>
             <Text style={styles.subtitle}>Have fun with other collegues. Discover new places. Connect.</Text>
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
         fontSize: 48,
         color: "#FFF",
         paddingTop: 20,
-        fontWeight: 700
     },
     subtitle: {
         fontSize: 18,
@@ -71,7 +70,6 @@ const styles = StyleSheet.create({
     mainButtonLabel: {
         color: "#ff323c",
         fontSize: 16,
-        fontWeight: 700,
         padding: 20,
         textAlign: "center"
     }
