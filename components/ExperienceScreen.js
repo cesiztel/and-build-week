@@ -95,71 +95,76 @@ const ExperienceScreen = () => {
     };
 
     return (
-        <SafeAreaView style={styles.experienceContainer}>
-            <ScrollView>
-                <View>
-                    <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
-                    <FlatList
-                        data={EXPERIENCES}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                    />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+      <SafeAreaView style={styles.experienceContainer}>
+        <ScrollView>
+          <View style={styles.main}>
+            <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
+            <FlatList
+              data={EXPERIENCES}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     );
 }
 
 const styles = {
-    image: {
-        width: "100%",
-        height: 200,
-        borderTopLeftRadius: "10px",
-        borderTopRightRadius: "10px"
-    },
-    experienceContainer: {
-        height: "100%",
-        backgroundColor:"#FFF",
-        padding: 16
-    },
-    sectionTitle: {
-        fontWeight: 700,
-        fontSize: 16,
-        marginBottom: 10
-    },
-    experienceCard: {
-        marginRight: 10,
-        marginLeft: 10,
-        marginBottom: 10,
-        boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
-        borderRadius: "10px",
-    },
-    experienceCardInformation: {
-        fontSize: 16,
-        color: "#1e212d"
-    },
-    experienceName: {
-        fontWeight: 700,
-        fontSize: 22,
-        padding: 20
-    },
-    activityCard: {
-        padding: 15,
-        marginBottom: 10,
-        marginRight: 16,
-        display: "flex",
-        flexDirection: "row",
-    },
-    activityTitle: {
-        paddingTop: 20,
-        paddingLeft: 20
-    },
-    activityIcon: {
-        padding: 10,
-        backgroundColor: "#dae7ff",
-        fontSize: 22,
-        borderRadius: 15
-    }
-}
+  image: {
+    width: "100%",
+    height: 200,
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
+  },
+  experienceContainer: {
+    height: "100%",
+    backgroundColor: "#FFF",
+    padding: 20,
+  },
+  sectionTitle: {
+    fontWeight: 700,
+    fontSize: 16,
+    marginBottom: 20,
+    marginLeft: 20,
+  },
+  experienceCard: {
+    marginRight: 20,
+    marginLeft: 20,
+    marginBottom: 20,
+    boxShadow: "0 1px 6px rgb(60 64 67 / 28%)",
+    borderRadius: "10px",
+  },
+  experienceCardInformation: {
+    fontSize: 16,
+    color: "#1e212d",
+  },
+  experienceName: {
+    fontWeight: 700,
+    fontSize: 22,
+    padding: 20,
+    paddingBottom: 0
+  },
+  activityCard: {
+    padding: 15,
+    marginBottom: 10,
+    marginRight: 16,
+    display: "flex",
+    flexDirection: "row",
+  },
+  activityTitle: {
+    paddingTop: 20,
+    paddingLeft: 20,
+  },
+  activityIcon: {
+    padding: 10,
+    backgroundColor: "#dae7ff",
+    fontSize: 22,
+    borderRadius: 15,
+  },
+  main: {
+    padding: 10,
+  },
+};
 
 export default ExperienceScreen;

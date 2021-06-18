@@ -73,7 +73,7 @@ const MatchScreen = () => {
             {/* Top Container */}
             <View style={styles.matchContainer}>
               <View>
-              <Text style={(styles.header)}>It's A Match!</Text>
+                <Text style={styles.header}>It's A Match!</Text>
                 <View style={styles.images}>
                   <View style={{ padding: 10 }}>
                     <Image
@@ -82,7 +82,7 @@ const MatchScreen = () => {
                       source={{
                         width: 100,
                         height: 100,
-                        uri: "https://pbs.twimg.com/profile_images/735720820132089856/EQopVEs3_400x400.jpg",
+                        uri: "https://randomuser.me/api/portraits/women/46.jpg",
                       }}
                       resizeMode="contain"
                     />
@@ -94,13 +94,12 @@ const MatchScreen = () => {
                       source={{
                         width: 100,
                         height: 100,
-                        uri: "https://media-exp3.licdn.com/dms/image/C4D03AQHxgM63nYFdLA/profile-displayphoto-shrink_800_800/0/1597915932525?e=1629331200&v=beta&t=RqR5BpVBfiRkoegGnIV_q8hbTIYYFVx0CMj9X8SzDLM",
+                        uri: "https://randomuser.me/api/portraits/women/65.jpg",
                       }}
                       resizeMode="contain"
                     />
                   </View>
                 </View>
-                
               </View>
             </View>
             {/* Bottom Container */}
@@ -111,10 +110,9 @@ const MatchScreen = () => {
                   colors={["rgba(255,50,60,1)", "rgba(160,80,255,1)"]}
                   style={styles.background}
                 >
-                    
                   <Text>🚀</Text>
                   <Text style={{ color: "white" }}>You are meeting</Text>
-                  <Text style={(styles.text)}>Andrea</Text>
+                  <Text style={styles.text}>Andrea</Text>
                   <View style={styles.line} />
                   <Text>👯‍♀️</Text>
                   <Text style={{ color: "white" }}>Your ANDexperience is</Text>
@@ -134,10 +132,24 @@ const MatchScreen = () => {
                   </Text>
                   <View style={styles.prefContainer}>
                     <View style={styles.preferenceBox}>
-                        <Text style={({ fontFamily: "Poppins_700Bold", color: "white"})}>Cooking</Text>
+                      <Text
+                        style={{
+                          fontFamily: "Poppins_700Bold",
+                          color: "white",
+                        }}
+                      >
+                        Cycling
+                      </Text>
                     </View>
                     <View style={styles.preferenceBox}>
-                        <Text style={({ fontFamily: "Poppins_700Bold", color: "white"})}>Walking</Text>
+                      <Text
+                        style={{
+                          fontFamily: "Poppins_700Bold",
+                          color: "white",
+                        }}
+                      >
+                        Reading
+                      </Text>
                     </View>
                   </View>
                   <View style={styles.line} />
@@ -178,12 +190,6 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins_700Bold",
     textAlign: "center",
   },
-  //   container: {
-  //     flex: 1,
-  //     backgroundColor: "white",
-  //     alignItems: "center",
-  //     justifyContent: "center",
-  //   },
   matchContainer: {
     fontFamily: "Poppins_700Bold",
     flex: 1,
@@ -218,7 +224,6 @@ const styles = StyleSheet.create({
     flex: 1,
 
     zIndex: -1,
-    // resizeMode: 'cover',
     justifyContent: "center",
   },
   images: {
@@ -232,7 +237,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     display: "flex",
-    //   flexDirection: 'row',
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,

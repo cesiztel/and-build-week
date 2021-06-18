@@ -4,20 +4,9 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './components/HomeScreen';
-import ProfileScreen from './components/ProfileScreen';
-import MatchScreen from './components/MatchScreen';
-
-/**/
 
 const Stack = createStackNavigator();
 
-/* export default function App() {
-  return (
-    <NavigationContainer>
-      <AppNavigationTabs />
-    </NavigationContainer>
-  );
-}*/
 
 function AppScreen({ navigation }) {
     return (
@@ -42,8 +31,8 @@ export default function App() {
     return (
         <NavigationContainer theme={MyTheme} >
             <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
-                <Stack.Screen name="AppScreen" component={AppScreen} />
-                <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="Welcome" component={AppScreen} />
+                <Stack.Screen name="Home" component={HomeScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
