@@ -1,13 +1,70 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image, Pressable } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { StyleSheet, View, Text, Image, Pressable, Platform } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './components/HomeScreen';
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
+import MatchScreen from './components/MatchScreen';
 
 const Stack = createStackNavigator();
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 function AppScreen({ navigation }) {
+    const notificationListener = useRef();
+    const responseListener = useRef();
+
+    useEffect(() => {
+      registerForPushNotification().then(token=> console.log(token));
+      
+      notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+        console.log("Received push Notification!!!" + JSON.stringify(notification));
+      });
+  
+      responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+        console.log(response);
+
+        navigation.navigate('MatchScreen');
+      });
+      
+      return () => {
+        Notifications.removeNotificationSubscription(notificationListener.current);
+        Notifications.removeNotificationSubscription(responseListener.current);
+      };
+    }, [])
+
+    async function registerForPushNotification(){
+      const {status} = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+      if (status != 'granted') {
+        const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+        // finalStatus = status;
+      }
+      if (status !== 'granted') {
+        alert('Failed to get push token for push notification!');
+        return;
+      }
+
+      if (Platform.OS === 'android') {
+        Notifications.setNotificationChannelAsync('default', {
+          name: 'default',
+          importance: Notifications.AndroidImportance.MAX,
+          vibrationPattern: [0, 250, 250, 250],
+          lightColor: '#FF231F7C',
+        });
+      }
+
+      token = (await Notifications.getExpoPushTokenAsync()).data;
+
+      return token
+    }
+
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Image
@@ -32,6 +89,7 @@ export default function App() {
             <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
                 <Stack.Screen name="Welcome" component={AppScreen} />
                 <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="MatchScreen" component={MatchScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
