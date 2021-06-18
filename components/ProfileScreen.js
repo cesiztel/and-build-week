@@ -6,10 +6,55 @@ import {
   Button,
   SafeAreaView,
   TextInput,
+    ScrollView,
+    FlatList
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const styles = {
+  mainContainer: {
+    backgroundColor: "#FFF",
+    height: "100%"
+  },
+
+  introContainer: {
+    backgroundColor: "#ff323c",
+    width: "100%"
+  },
+  andiCard: {
+    alignItems: "center",
+    padding: 10,
+    marginBottom: 10,
+    display: "flex",
+    flexDirection: "row"
+  },
+  profileCard: {
+    background: "white",
+    alignItems: "center",
+    boxShadow: "0 0 5px 0 gray",
+    borderRadius: 8,
+    padding: 20,
+    margin: 20,
+    display: "flex",
+    flexDirection: "row"
+  },
+  profileCardInformation: {
+    marginLeft: 30
+  },
+  profilePhoto: {
+    width: 120,
+    height: 120,
+    borderRadius: "10px",
+  },
+  andiProfilePhoto: {
+    width: 60,
+    height: 60,
+    borderRadius: "10px",
+  },
+  andiProfileUserName: {
+    fontSize: 16,
+    color: "#1e212d"
+  },
   uploadProfilePhoto: {
     width: 30,
     height: 30,
@@ -32,97 +77,138 @@ const styles = {
     right: "16px",
     top: "62%",
   },
-  profilePhoto: {
-    width: 120,
-    height: 120,
-    resizeMode: "cover",
-    borderRadius: "50%",
-    boxShadow: "rgb(255 50 60 / 60%) 9px 8px 25px",
-  },
-  mainContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    paddingTop: 50,
-  },
   userName: {
-    paddingTop: 20,
-    fontWeight: "bold",
+    fontSize: 20,
+    color: "#1e212d"
   },
   introduction: {
-    textAlign: "center",
-    padding: 10,
+    color: "#a1a1a1",
+    fontSize: 14
   },
-  introContainer: {
-    boxShadow: "10px 10px 30px rgba(255, 50, 60, 0.6)",
-    background: "white",
-    borderRadius: 20,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    marginTop: 80,
-    elevation: 1,
-    width: "80%",
-    zIndex: "100",
-    position: "relative",
-  },
-  redBubble: {
-    background: "rgba(255,50,60,1)",
-    width: "100%",
-    height: "70%",
-    borderBottomRightRadius: 80,
-    borderBottomLeftRadius: 80,
-    position: "absolute",
-    elevation: -10,
-    zIndex: -10,
-    top: 0,
-  },
-  pageTitle: {
-    position: "absolute",
-    top: 30,
-    color: "white",
-  },
-
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
   },
+  activitiesContainer: {
+    marginLeft: 20,
+    marginTop: 20
+  },
+  sectionTitle: {
+    fontWeight: 700,
+    fontSize: 16,
+    marginBottom: 10
+  },
+  activityCard: {
+    padding: 15,
+    marginBottom: 10,
+    marginRight: 16,
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "#f8f8f8",
+    borderRadius: 15
+  },
+  activityTitle: {
+    paddingTop: 20,
+    paddingLeft: 20
+  },
+  activityIcon: {
+    padding: 10,
+    backgroundColor: "#dae7ff",
+    fontSize: 42,
+    borderRadius: 15
+  }
 };
 
-const ProfileScreen = () => {
-  return (
-    <>
-      <View style={styles.mainContainer}>
-        <Text style={styles.pageTitle}>My profile</Text>
-        <View style={styles.introContainer}>
-          <Image
-            style={styles.profilePhoto}
-            source={{
-              uri: "https://images.unsplash.com/photo-1612061279301-c1bd3a484fcf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
-            }}
-          />
-          <View style={styles.uploadProfilePhoto}>
-            <Icon name="camera" style={styles.cameraIcon} />
-          </View>
-          <Text style={styles.userName}>@Grace Leah</Text>
-          <Text style={styles.introduction}>
-            People's Lead and Cat Fanatic. <br />I love cocktails and long walks
-            on the beach. <br />
-            <Icon name="pencil" style={styles.pencilIcon} />
-          </Text>
-        </View>
-        <View style={styles.redBubble}></View>
-
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-          />
-        </View>
+const Activity = (props) => {
+  return(
+      <View style={styles.activityCard}>
+        <Text style={styles.activityIcon}>{props.icon}</Text>
+        <Text style={styles.activityTitle}>{props.name}</Text>
       </View>
-    </>
+  );
+};
+
+const ANDIS = [
+  {
+    id: '50',
+    name: 'Olivia Harrinton',
+    title: 'People Lead'
+  },
+  {
+    id: '53',
+    name: 'Emma Watson',
+    title: 'Product Developer'
+  },
+  {
+    id: '55',
+    name: 'Olivia Harrison',
+    title: 'Product Analyst'
+  },
+];
+
+const Item = ({ id, name, title }) => (
+    <View style={styles.andiCard}>
+      <Image
+          style={styles.andiProfilePhoto}
+          source={{
+            uri: `https://randomuser.me/api/portraits/women/${id}.jpg`,
+          }}
+      />
+      <View style={styles.profileCardInformation}>
+        <Text style={styles.andiProfileUserName}>{name}</Text>
+        <Text style={styles.introduction}>
+          {title}
+        </Text>
+      </View>
+    </View>
+);
+
+const ProfileScreen = () => {
+  const renderItem = ({ item }) => (
+      <Item id={item.id} name={item.name} title={item.title} />
+  );
+
+  return (
+      <SafeAreaView style={styles.mainContainer}>
+        <ScrollView>
+        <View style={styles.introContainer}>
+          <View style={styles.profileCard}>
+            <Image
+                style={styles.profilePhoto}
+                source={{
+                  uri: "https://randomuser.me/api/portraits/women/46.jpg",
+                }}
+            />
+            <View style={styles.profileCardInformation}>
+              <Text style={styles.userName}>Grace Leah</Text>
+              <Text style={styles.introduction}>
+                People's Lead and Cat Fanatic.
+              </Text>
+              <Text style={styles.introduction}>
+                Club: Amsterdam
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.activitiesContainer}>
+          <Text style={styles.sectionTitle}>PREFERRED ACTIVITIES</Text>
+          <View>
+            <Activity name="Walk" icon="🚶‍"/>
+            <Activity name="Read" icon="📚"/>
+            <Activity name="Cycling" icon="🚴‍"/>
+          </View>
+        </View>
+        <View style={styles.activitiesContainer}>
+          <Text style={styles.sectionTitle}>ANDis AMSTERDAM CLUB</Text>
+          <FlatList
+              data={ANDIS}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+          />
+        </View>
+        </ScrollView>
+      </SafeAreaView>
   );
 };
 
