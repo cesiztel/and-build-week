@@ -57,41 +57,43 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <ScrollView>
-        <View style={styles.introContainer}>
-          <View style={styles.profileCard}>
-            <Image
-              style={styles.profilePhoto}
-              source={{
-                uri: "https://randomuser.me/api/portraits/women/46.jpg",
-              }}
-            />
-            <View style={styles.profileCardInformation}>
-              <Text style={styles.userName}>Grace Leah</Text>
-              <Text style={styles.introduction}>
-                People's Lead and Cat Fanatic.
-              </Text>
-              <Text style={styles.introduction}>Club: Amsterdam</Text>
+      <View>
+        <ScrollView>
+          <View style={styles.introContainer}>
+            <View style={styles.profileCard}>
+              <Image
+                style={styles.profilePhoto}
+                source={{
+                  uri: "https://randomuser.me/api/portraits/women/46.jpg",
+                }}
+              />
+              <View style={styles.profileCardInformation}>
+                <Text style={styles.userName}>Grace Leah</Text>
+                <Text style={styles.introduction}>
+                  People's Lead and Cat Fanatic.
+                </Text>
+                <Text style={styles.introduction}>Club: Amsterdam</Text>
+              </View>
             </View>
           </View>
-        </View>
-        <View style={styles.activitiesContainer}>
-          <Text style={styles.sectionTitle}>PREFERRED ACTIVITIES</Text>
-          <View>
-            <Activity name="Walk" icon="🚶‍" />
-            <Activity name="Read" icon="📚" />
-            <Activity name="Cycling" icon="🚴‍" />
+          <View style={styles.activitiesContainer}>
+            <Text style={styles.sectionTitle}>PREFERRED ACTIVITIES</Text>
+            <View>
+              <Activity name="Walk" icon="🚶‍" />
+              <Activity name="Read" icon="📚" />
+              <Activity name="Cycling" icon="🚴‍" />
+            </View>
           </View>
-        </View>
-        <View style={styles.activitiesContainer}>
-          <Text style={styles.sectionTitle}>ANDis AMSTERDAM CLUB</Text>
-          <FlatList
-            data={ANDIS}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-      </ScrollView>
+          <View style={styles.activitiesContainer}>
+            <Text style={styles.sectionTitle}>ANDis AMSTERDAM CLUB</Text>
+            <FlatList
+              data={ANDIS}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

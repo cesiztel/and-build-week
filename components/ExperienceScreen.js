@@ -5,8 +5,8 @@ import {
   Image,
   Button,
   SafeAreaView,
-  ListHeaderComponent,
   FlatList,
+  ScrollView,
 } from "react-native";
 
 const EXPERIENCES = [
@@ -87,7 +87,7 @@ const Activity = ({ icon, name }) => {
 
 const Experience = ({ image, name, activity, icon }) => (
   <View style={styles.experienceCard}>
-    <Image source={{uri: image}} style={styles.image} />
+    <Image source={{ uri: image }} style={styles.image} />
     <Text style={styles.experienceName}>{name}</Text>
     <Activity name={activity} icon={icon} />
   </View>
@@ -107,16 +107,18 @@ const ExperienceScreen = () => {
 
   return (
     <SafeAreaView style={styles.experienceContainer}>
-      <ListHeaderComponent>
-        <View style={styles.main}>
-          <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
-          <FlatList
-            data={EXPERIENCES}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-      </ListHeaderComponent>
+      <View>
+        <ScrollView>
+          <View style={styles.main}>
+            <Text style={styles.sectionTitle}>POPULAR EXPERIENCES</Text>
+            <FlatList
+              data={EXPERIENCES}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -134,7 +136,7 @@ const styles = {
     padding: 20,
   },
   sectionTitle: {
-    fontWeight: '700',
+    fontWeight: "700",
     fontSize: 16,
     marginBottom: 20,
     marginLeft: 20,
@@ -152,14 +154,14 @@ const styles = {
     shadowRadius: 5.46,
 
     elevation: 9,
-    borderRadius: "10px",
+    borderRadius: 10,
   },
   experienceCardInformation: {
     fontSize: 16,
     color: "#1e212d",
   },
   experienceName: {
-    fontWeight: '700',
+    fontWeight: "700",
     fontSize: 22,
     padding: 20,
     paddingBottom: 0,
